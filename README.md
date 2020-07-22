@@ -41,7 +41,9 @@ $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 
 ## Mac Support
 
-### Step 1)
+To enable Mac support, please complete the following steps:
+
+### Step 1
 
 It is required that PulseAudio to be installed via `homebrew`
 (`brew install pulseaudio`), and the following lines in
@@ -52,7 +54,7 @@ load-module module-esound-protocol-tcp
 load-module module-native-protocol-tcp
 ```
 
-### Step 2)
+### Step 2
 
 To choose the device being used for output, bring up a list of possible output devices and
 select one as the default sink:
@@ -63,7 +65,7 @@ pactl list short sinks
 pacmd set-default-sink n  # where n is the chosen output number
 ```
 
-### Step 3)
+### Step 3
 
 Start the Pulseaudio daemon:
 
@@ -72,7 +74,8 @@ pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
 ```
 
 You should now be able to utilize the `docker-tizonia` script to route audio from the docker
-container to the host machine!
+container to the host machine! Please note, this support is no longer being maintained from this repo, please refer to the main repo here:
+https://github.com/matthewarmand/docker-tizonia
 
 # License
 
